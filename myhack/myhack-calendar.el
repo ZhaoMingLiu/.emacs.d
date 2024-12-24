@@ -1,4 +1,4 @@
-;;; rc-calendar.el ---
+;;; myhack-calendar.el ---
 
 (use-package taiwan-holidays
   :load-path "C:/Users/zhao/Documents/Pub/taiwan-holidays.el"
@@ -48,5 +48,5 @@
   :hook (calendar-mode . my/calendarSetup))
 
 
-(provide 'rc-calendar)
-;;; rc-calendar.el ends here
+(provide 'myhack-calendar)
+;;; myhack-calendar.el ends here

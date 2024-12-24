@@ -1,4 +1,4 @@
-;;; rc-tab-line.el --- Modern `tab-line' for Emacs.
+;;; ui-tab-line.el --- Modern `tab-line' for Emacs.
 
 (use-package tab-line
   :custom-face
@@ -16,5 +16,5 @@
   (global-tab-line-mode))
 
 
-(provide 'rc-tab-line)
-;;; rc-tab-line.el ends here
+(provide 'ui-tab-line)
+;;; ui-tab-line.el ends here

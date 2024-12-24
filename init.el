@@ -2,18 +2,20 @@
 
 ;; (add-to-list 'load-path (expand-file-name (concat user-emacs-directory "rc")))
 (add-to-list 'load-path (locate-user-emacs-file "rc"))
-(require 'rc-basic)
-(require 'rc-keybind)			; Sensible Binding
 (require 'rc-use-package)		; Use Package
+(require 'rc-basic)
+(require 'rc-setup-font)		; Our Major Character
+(require 'rc-keybind)			; Sensible Binding
 (require 'rc-no-littering)
-(require 'rc-theme)	    ; Load theme
-(require 'rc-tab-line)	    ; Customized tab bar/line
-(require 'rc-calendar)	    ; Improved Calendar for Tradtional Chinese
-(require 'rc-undo-fu)	    ; Slighy Advance/Modern Undo System
 (require 'rc-completion)    ; Improved `M-x' && Editing Environment
 (require 'rc-languages)	    ; Mode or LSP
-(require 'rc-org)
-(require 'rc-setup-font)		; Our Major Character
+(add-to-list 'load-path (locate-user-emacs-file "ui"))
+(require 'ui-theme)	    ; Load theme
+(require 'ui-tab-line)	    ; Customized tab bar/line
+(add-to-list 'load-path (locate-user-emacs-file "myhack"))
+(require 'myhack-calendar)	    ; Improved Calendar for Tradtional Chinese
+(require 'myhack-undo-fu)	    ; Slighy Advance/Modern Undo System
+(require 'myhack-org)
 
 
 (use-package magit

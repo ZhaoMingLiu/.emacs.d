@@ -1,10 +1,10 @@
-;;; rc-theme.el --- Happy Hacking
+;;; ui-theme.el --- Happy Hacking
 
 (use-package modus-themes
   :bind ("<f5>" . #'modus-themes-toggle)
   :custom-face
   (show-paren-match ((t :underline nil
-                        :weight semibold)))
+                        :weight bold)))
   ;; (region ((t :extend nil)))
   :config
   (setq modus-themes-bold-constructs t
@@ -60,5 +60,5 @@
 (use-package goggles :hook ((prog-mode text-mode) . goggles-mode))
 
 
-(provide 'rc-theme)
-;;; rc-theme.el ends here
+(provide 'ui-theme)
+;;; ui-theme.el ends here

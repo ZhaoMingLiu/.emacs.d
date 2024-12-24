@@ -1,4 +1,4 @@
-;;; rc-org.el ---
+;;; myhack-org.el ---
 
 (use-package org
   :defer t
@@ -36,5 +36,5 @@
 ;;   :custom (visual-fill-column-center-text t))
 
 
-(provide 'rc-org)
-;;; rc-org.el ends here
+(provide 'myhack-org)
+;;; myhack-org.el ends here
