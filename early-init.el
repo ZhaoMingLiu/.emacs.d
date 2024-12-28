@@ -25,11 +25,6 @@
              (minibuffer-window frame) 8 8 5 t)))
 
 
-;; (setq package-enable-at-startup nil)
-
-;; (setq-default package-quickstart t)
-
-
 ;; Make native compilation silent and prune its cache.
 (when (native-comp-available-p)
   (setq native-comp-async-report-warnings-errors 'silent) ; Emacs 28 with native compilation

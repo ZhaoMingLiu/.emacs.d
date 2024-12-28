@@ -2,21 +2,18 @@
 ;; Use Package (for simplicity)
 
 (require 'package)
+(require 'use-package-ensure)
+
+(package-initialize)
 
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(package-initialize)
 
 (setq package-native-compile t)
 
 
-(require 'use-package-ensure)
-
 (setq use-package-always-ensure t)
 
-(setq use-package-verbose t)
-
-
-(setq load-prefer-newer t)
+;; (setq use-package-verbose t)
 
 
 (provide 'rc-use-package)

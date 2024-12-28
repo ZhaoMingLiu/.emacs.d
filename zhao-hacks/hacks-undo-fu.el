@@ -1,4 +1,4 @@
-;;; myhack-undo-fu.el ---
+;;; hacks-undo-fu.el ---
 
 (use-package undo-fu-session
   :hook after-init
@@ -14,5 +14,5 @@
   (setq undo-fu-allow-undo-in-region t))
 
 
-(provide 'myhack-undo-fu)
-;;; myhack-undo-fu.el ends here
+(provide 'hacks-undo-fu)
+;;; hacks-undo-fu.el ends here

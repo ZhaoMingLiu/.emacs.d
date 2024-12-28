@@ -1,4 +1,4 @@
-;;; myhack-org.el ---
+;;; hacks-org.el ---
 
 (use-package org
   :defer t
@@ -36,5 +36,5 @@
 ;;   :custom (visual-fill-column-center-text t))
 
 
-(provide 'myhack-org)
-;;; myhack-org.el ends here
+(provide 'hacks-org)
+;;; hacks-org.el ends here
