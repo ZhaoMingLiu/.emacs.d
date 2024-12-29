@@ -12,11 +12,13 @@
 
 (add-to-list 'load-path (locate-user-emacs-file "zhao-ui"))
 (require 'ui-theme)			; Load theme
+(require 'ui-greeting)			; Let Emacs smile
+(require 'ui-utils)
 ;; (require 'ui-tab-line)			; Customized tab bar/line
 
 (add-to-list 'load-path (locate-user-emacs-file "zhao-hacks"))
-(require 'hacks-calendar)  ; Improved Calendar for Tradtional Chinese
-(require 'hacks-undo-fu)   ; Slighy Advance/Modern Undo System
+(require 'hacks-calendar)   ; Improved Calendar for Tradtional Chinese
+(require 'hacks-undo-fu)    ; Slighy Advance/Modern Undo System
 (require 'hacks-org)
 
 
@@ -25,21 +27,10 @@
   ("C-x g" . magit-status))
 
 
-(use-package enlight
-  :custom
-  (enlight-content
-   (concat
-    (propertize "MENU" 'face 'highlight)
-    "\n"
-    (enlight-menu
-     '(("Recents"
-	("open last closed" recentf-open-most-recent-file "r")
-	("list recently opened" recentf-open "l"))
-       ("Find..."
-	("users" (dired "~/../../") "h")
-	(".emacs.d" (dired "~/.emacs.d") "e")
-	("downloads" (dired "~/../../Downloads") "d"))))))
-  :config
-  (setopt initial-buffer-choice #'enlight))
+;; (use-package iedit)
 
-(use-package breadcrumb :hook after-init)
+(use-package multiple-cursors
+  :bind
+  (("C-S-c C-S-j" . mc/edit-lines)
+   ("C-S-c C-S-c" . mc/mark-all-like-this-dwim)
+   ("C-S-c C-S-r" . set-rectangular-region-anchor)))

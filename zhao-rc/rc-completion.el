@@ -64,7 +64,7 @@
                    crm-separator)
                   (car args))
           (cdr args)))
-  ;; (advice-add #'completing-read-multiple :filter-args #'crm-indicator)
+  (advice-add #'completing-read-multiple :filter-args #'crm-indicator)
 
 
   (defun sort-directories-first (files)
