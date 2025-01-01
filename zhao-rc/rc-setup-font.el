@@ -14,17 +14,24 @@
 ;; (defvar emacs-english-font "Iosevka NF"
 ;;   "The font name of English.")
 
-(defvar emacs-english-font "RecMonoDuotone Nerd Font Mono"
+(defvar emacs-english-font "RecMonoSmCasual Nerd Font Mono"
   "The font name of English.")
 
-;; (defvar emacs-cjk-font "LXGW Marker Gothic"
-;;   "The font name for CJK.")
-
-(defvar emacs-cjk-font "LXGW ZhiSong CL"
+(defvar emacs-cjk-font "LXGW Marker Gothic"
   "The font name for CJK.")
+
+;; (defvar emacs-cjk-font "LXGW ZhiSong CL"
+;;   "The font name for CJK.")
 
 ;; (defvar emacs-cjk-font "LXGW XiHei MN"
 ;;   "The font name for CJK.")
+
+(set-face-attribute 'variable-pitch nil
+		    :family "Iosevka NFP"
+		    :weight 'Medium)
+
+(set-face-attribute 'fixed-pitch nil
+		    :family emacs-english-font)
 
 (defvar emacs-font-size-pair '(17 . 20)
   "Default font size pair for (english . chinese)")

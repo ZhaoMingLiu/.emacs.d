@@ -13,6 +13,8 @@
 (when system-type 'windows-nt
       (setq w32-recognize-altgr nil))
 
+(setopt switch-to-buffer-obey-display-actions t)
+
 
 (prefer-coding-system 'utf-8)
 (set-language-environment "UTF-8")
@@ -29,10 +31,17 @@
 (add-hook 'prog-mode-hook #'rc-basic/prog)
 
 
+;;;; Info mode hacks
+(add-hook 'Info-mode-hook 'variable-pitch-mode)
+
+(use-package visual-fill-column
+  :hook ((Info-mode . visual-line-fill-column-mode))
+  :custom (visual-fill-column-center-text t))
+
+
 (save-place-mode)
 ;; (repeat-mode)
 ;; (global-auto-revert-mode)
-;; (global-display-line-numbers-mode)
 ;; (global-display-fill-column-indicator-mode)
 
 
