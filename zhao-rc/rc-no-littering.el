@@ -1,6 +1,7 @@
 ;;; rc-no-littering.el ---
 
 (use-package no-littering
+  :demand t
   :init
   (setq no-littering-etc-directory
         (expand-file-name "config/" user-emacs-directory)

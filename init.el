@@ -3,12 +3,12 @@
 ;; (add-to-list 'load-path (expand-file-name "zhao-rc" user-emacs-directory)) ;absolute path
 (add-to-list 'load-path (locate-user-emacs-file "zhao-rc")) ;relative path
 (require 'rc-use-package)
-(require 'rc-no-littering)
 (require 'rc-basic)
 (require 'rc-setup-font)		; Our Major Character
 (require 'rc-keybind)			; Sensible Binding
 (require 'rc-completion)       ; My fancy setup for `M-x'
 (require 'rc-languages)	       ; Mode, LSP and Treesitter
+(require 'rc-no-littering)
 
 (add-to-list 'load-path (locate-user-emacs-file "zhao-ui"))
 (require 'ui-theme)			; Load theme
