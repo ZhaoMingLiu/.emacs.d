@@ -13,7 +13,7 @@
 
 (use-package yascroll :hook (after-init . global-yascroll-bar-mode))
 
-(use-package breadcrumb :hook after-init)
+;; (use-package breadcrumb :hook after-init)
 
 
 ;; (use-package minions :hook after-init)

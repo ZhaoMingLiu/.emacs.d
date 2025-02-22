@@ -10,6 +10,8 @@
 (setq visible-bell t)
 ;; (setq ring-bell-function 'ignore)
 
+;; (setq scroll-preserve-screen-position t)
+
 (when system-type 'windows-nt
       (setq w32-recognize-altgr nil))
 
@@ -31,11 +33,19 @@
 (add-hook 'prog-mode-hook #'rc-basic/prog)
 
 
-;;;; Info mode hacks
+;;;; Info and help-mode hacks
+;; (defun rc-basic/help ()
+;;   (variable-pitch-mode t)
+;;   (switch-to-buffer-other-window "*Help*"))
+
+(add-hook 'help-mode-hook 'variable-pitch-mode)
+
 (add-hook 'Info-mode-hook 'variable-pitch-mode)
 
 (use-package visual-fill-column
-  :hook ((Info-mode . visual-line-fill-column-mode))
+  :hook ((Info-mode
+	  help-mode)
+	 . visual-line-fill-column-mode)
   :custom (visual-fill-column-center-text t))
 
 

@@ -53,13 +53,40 @@
 	  (bg-heading-3 bg-cyan-nuanced)
 	  (overline-heading-1 border)
           (overline-heading-2 border)
-	  (overline-heading-3 border)))
+	  (overline-heading-3 border)
 
+	  (bg-tab-bar bg-main)
+          (bg-tab-current bg-cyan-intense)
+          (bg-tab-other bg-inactive)))
+
+
+  (defun my-modus-themes-custom-faces (&rest _)
+    (modus-themes-with-colors
+      (custom-set-faces
+       ;; Add "padding" to the mode lines
+       `(mode-line ((,c :box (:line-width 4 :color ,bg-mode-line-active)))))))
+
+  (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
+  (add-hook 'emacs-startup-hook #'my-modus-themes-custom-faces) ;prevent previous hook unworking caused by circadian package
 
   (setq modus-themes-to-toggle '(modus-operandi modus-vivendi-deuteranopia))
 
+  ;; (modus-themes-load-theme 'modus-operandi)
+  )
 
-  (modus-themes-load-theme 'modus-operandi-tinted))
+
+(use-package solar
+  :ensure nil
+  :config
+  (setq calendar-latitude   24.14	;taichung
+        calendar-longitude 120.67))
+
+(use-package circadian
+  :after solar
+  :hook (emacs-startup . circadian-setup)
+  :config
+  (setq circadian-themes '((:sunrise . modus-operandi)
+                           (:sunset  . modus-vivendi-deuteranopia))))
 
 
 (use-package rainbow-delimiters :hook prog-mode)

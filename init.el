@@ -26,11 +26,8 @@
   :bind
   ("C-x g" . magit-status))
 
-
-;; (use-package iedit)
-
-(use-package multiple-cursors
+(use-package iedit
   :bind
-  (("C-S-c C-S-j" . mc/edit-lines)
-   ("C-S-c C-S-c" . mc/mark-all-like-this-dwim)
-   ("C-S-c C-S-r" . set-rectangular-region-anchor)))
+  (("C-;" . iedit-mode)
+   :map rectangle-mark-mode-map
+   ("C-;" . iedit-rectangle-mode)))
