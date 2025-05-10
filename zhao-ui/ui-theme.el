@@ -4,8 +4,8 @@
   :bind ("<f5>" . #'modus-themes-toggle)
 
   :custom-face
-  (show-paren-match ((t :underline nil
-                        :weight semibold)))
+  ;; (show-paren-match ((t :underline nil
+  ;;                       :weight semibold)))
   (region ((t :extend nil)))
 
   :config
@@ -57,7 +57,11 @@
 
 	  (bg-tab-bar bg-main)
           (bg-tab-current bg-cyan-intense)
-          (bg-tab-other bg-inactive)))
+          (bg-tab-other bg-inactive)
+
+	  ;; (bg-paren-match unspecified)
+	  ;; (fg-paren-match unspecified)
+	  ))
 
 
   (defun my-modus-themes-custom-faces (&rest _)
@@ -69,10 +73,7 @@
   (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
   (add-hook 'emacs-startup-hook #'my-modus-themes-custom-faces) ;prevent previous hook unworking caused by circadian package
 
-  (setq modus-themes-to-toggle '(modus-operandi modus-vivendi-deuteranopia))
-
-  ;; (modus-themes-load-theme 'modus-operandi)
-  )
+  (setq modus-themes-to-toggle '(modus-operandi modus-vivendi-deuteranopia)))
 
 
 (use-package solar

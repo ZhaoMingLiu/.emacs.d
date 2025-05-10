@@ -10,7 +10,6 @@
 
 (setq package-native-compile t)
 
-
 (setq use-package-always-ensure t)
 
 ;; (setq use-package-verbose t)

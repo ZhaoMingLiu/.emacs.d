@@ -26,8 +26,12 @@
 ;; (defvar emacs-cjk-font "LXGW XiHei MN"
 ;;   "The font name for CJK.")
 
+;; (set-face-attribute 'variable-pitch nil
+;; 		    :family "Iosevka NFP"
+;; 		    :weight 'Medium)
+
 (set-face-attribute 'variable-pitch nil
-		    :family "Iosevka NFP"
+		    :family "RecMonoCasual Nerd Font Mono"
 		    :weight 'Medium)
 
 (set-face-attribute 'fixed-pitch nil

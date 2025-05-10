@@ -4,43 +4,34 @@
   :custom
   (treesit-auto-install 'prompt)
   :config
-  (treesit-auto-add-to-auto-mode-alist 'all)
+  ;; (treesit-auto-add-to-auto-mode-alist 'all)
+  (delete 'lua treesit-auto-langs)
   (global-treesit-auto-mode))
 
 
-;; (use-package lsp-mode
-;;   :init
-;;   (setq lsp-keymap-prefix "C-c l")
+(use-package eglot
+  :ensure nil
+  :hook ((python-mode
+	  python-ts-mode
 
-;;   :config
-;;   (defvar-local lsp-format-on-save t
-;;     "Format `lsp-mode'-managed buffer before save.")
+	  lua-mode
 
-;;   (defun lsp-format-on-save ()
-;;     "Format on save using LSP server."
-;;     (if lsp-format-on-save
-;;         (progn
-;;           (add-hook 'before-save-hook #'lsp-format-buffer nil 'local))))
-
-;;   (add-hook 'lsp-configure-hook #'lsp-format-on-save)
-
-;;   :commands (lsp lsp-deferred)
-
-;;   :hook ((c-mode
-;;           c-ts-mode
-
-;;           ;; sh-mode
-;;           ;; bash-ts-mode
-
-;;           js-mode
-;;           js-ts-mode
-
-;;           js-json-mode
-;;           json-ts-mode) . lsp-deferred))
+	  sh-mode
+	  bash-ts-mode) . eglot-ensure))
 
 
 (use-package lua-mode
-  :mode "\\.lua\\'")
+  :mode "\\.lua\\'"
+  :config
+  (setq lua-indent-nested-block-content-align nil)
+  (setq lua-indent-close-paren-align nil)
+
+  (defun lua-at-most-one-indent (old-function &rest arguments)
+    (let ((old-res (apply old-function arguments)))
+      (if (> old-res lua-indent-level) lua-indent-level old-res)))
+
+  (advice-add #'lua-calculate-indentation-block-modifier
+              :around #'lua-at-most-one-indent))
 
 
 (provide 'rc-languages)
