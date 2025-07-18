@@ -34,5 +34,8 @@
               :around #'lua-at-most-one-indent))
 
 
+(add-hook 'python-ts-mode-hook #'display-fill-column-indicator-mode)
+
+
 (provide 'rc-languages)
 ;;; rc-languages.el ends here

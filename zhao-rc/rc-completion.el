@@ -14,15 +14,9 @@
 					  basic
 					  partial-completion)))))
 
-;; (use-package icomplete
-;;   :ensure nil
-;;   :config
-;;   (fido-vertical-mode))
-
 
 (use-package vertico
   :pin gnu
-  ;; :after vertico-prescient
   :hook after-init
   :custom-face
   (marginalia-file-priv-dir ((t :weight bold)))
@@ -111,6 +105,24 @@
         (setcar args (concat "…" (truncate-string-to-width arg l (- l w)))))
     args)
   (advice-add #'vertico--format-candidate :filter-args #'my/vertico-truncate-candidates))
+
+
+(use-package consult
+  :bind (
+	 ("C-c i" . consult-info)
+	 ;; Custom M-# bindings for fast register access
+	 ("M-#" . consult-register-load)
+	 ("M-'" . consult-register-store)
+	 ("C-M-#" . consult-register)
+	 ;; Other custom bindings
+	 ("C-x b" . consult-buffer)
+	 ;; M-g bindings in `goto-map'
+	 ("M-g o" . consult-outline)
+	 ("M-g f" . consult-flymake)
+	 ("M-g g" . consult-goto-line)
+	 ("M-g i" . consult-imenu)
+	 )
+  :hook (completion-list-mode . consult-preview-at-point-mode))
 
 
 (use-package recentf

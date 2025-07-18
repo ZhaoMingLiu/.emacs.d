@@ -48,7 +48,14 @@
 ;; (use-package minions :hook after-init)
 
 
-(use-package doom-modeline :hook after-init)
+;; (use-package doom-modeline :hook after-init)
+
+
+(use-package moody
+  :config
+  (moody-replace-mode-line-front-space)
+  (moody-replace-mode-line-buffer-identification)
+  (moody-replace-vc-mode))
 
 
 (provide 'ui-utils)

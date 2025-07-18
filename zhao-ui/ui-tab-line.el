@@ -1,6 +1,7 @@
 ;;; ui-tab-line.el --- Modern `tab-line' for Emacs.
 
 (use-package tab-line
+  :ensure nil
   :custom-face
   (tab-line-tab ((t :height 1.2
                     :weight medium)))

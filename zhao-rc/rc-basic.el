@@ -13,7 +13,10 @@
 ;; (setq scroll-preserve-screen-position t)
 
 (when system-type 'windows-nt
-      (setq w32-recognize-altgr nil))
+      (setq w32-recognize-altgr nil)
+
+      (setq woman-path `(,(expand-file-name "~/../Local/man-pages-posix-2017/man*")
+			 ,(expand-file-name "~/../Local/man-pages-6.14/man/man*"))))
 
 (setopt switch-to-buffer-obey-display-actions t)
 
@@ -42,9 +45,11 @@
 
 (add-hook 'Info-mode-hook 'variable-pitch-mode)
 
+
 (use-package visual-fill-column
   :hook ((Info-mode
-	  help-mode)
+	  help-mode
+	  woman-mode)
 	 . visual-line-fill-column-mode)
   :custom (visual-fill-column-center-text t))
 
