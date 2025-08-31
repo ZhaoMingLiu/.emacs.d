@@ -1,11 +1,8 @@
 ;;; rc-completion.el ---
 
-(setopt completions-detailed t)
-
 (use-package savehist :hook after-init)
 
 (use-package orderless
-  :init (icomplete-mode)
   :custom
   (completion-styles '(orderless basic))
 
@@ -18,8 +15,8 @@
 (use-package vertico
   :pin gnu
   :hook after-init
-  :custom-face
-  (marginalia-file-priv-dir ((t :weight bold)))
+  ;; :custom-face
+  ;; (marginalia-file-priv-dir ((t :weight bold)))
   :config
   ;; (setq vertico-resize t)
 
@@ -38,17 +35,17 @@
            (+vertico-transform-functions . +vertico-highlight-directory)
            (vertico-sort-function . sort-directories-first))))
 
-  ;; (vertico-multiform-mode)
+  (vertico-multiform-mode)
 
   (vertico-mode)
 
 
-  ;; (setq completion-in-region-function
-  ;;       (lambda (&rest args)
-  ;;         (apply (if vertico-mode
-  ;;                    #'consult-completion-in-region
-  ;;                  #'completion--in-region)
-  ;;                args)))
+  (setq completion-in-region-function
+        (lambda (&rest args)
+          (apply (if vertico-mode
+                     #'consult-completion-in-region
+                   #'completion--in-region)
+                 args)))
 
 
   (defun crm-indicator (args)
@@ -126,13 +123,22 @@
 
 
 (use-package recentf
-  ;; :hook ((after-init . recentf-load-list)
-  ;; (buffer-list-update-hook . recentf-track-opened-file))
   :hook ((after-init . recentf-mode)
-         (buffer-list-update-hook . recentf-track-opened-file))
+         (buffer-list-update . recentf-track-opened-file))
   :bind (
          ("C-x C-r" . recentf-open)
          ("C-S-t"   . recentf-open-most-recent-file))) ;like in browser
+
+
+(use-package marginalia
+  :bind (:map minibuffer-local-map ("M-A" . marginalia-cycle))
+  :init (marginalia-mode))
+
+(use-package nerd-icons-completion
+  :after marginalia
+  :config
+  (nerd-icons-completion-mode)
+  (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
 
 
 (provide 'rc-completion)

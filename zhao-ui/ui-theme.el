@@ -64,33 +64,30 @@
 	  ))
 
 
-  (defun my-modus-themes-custom-faces (&rest _)
-    (modus-themes-with-colors
-      (custom-set-faces
-       ;; Add "padding" to the mode lines
-       `(mode-line ((,c :box (:line-width 4 :color ,bg-mode-line-active)))))))
+    (setq modus-themes-to-toggle '(modus-operandi modus-vivendi-deuteranopia)))
 
-  (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
-  (add-hook 'emacs-startup-hook #'my-modus-themes-custom-faces) ;prevent previous hook unworking caused by circadian package
 
-  (setq modus-themes-to-toggle '(modus-operandi modus-vivendi-deuteranopia)))
+(use-package doric-themes
+  :bind ("<f5>" . #'doric-themes-toggle)
+  :config
+  (setq doric-themes-to-toggle '(doric-marble doric-obsidian)))
 
 
 (use-package solar
   :ensure nil
   :config
-  (setq calendar-latitude   24.14	;taichung
+  (setq calendar-latitude   24.14	;Taichung
         calendar-longitude 120.67))
 
 (use-package circadian
   :after solar
   :hook (emacs-startup . circadian-setup)
   :config
-  (setq circadian-themes '((:sunrise . modus-operandi)
-                           (:sunset  . modus-vivendi-deuteranopia))))
+  ;; (setq circadian-themes '((:sunrise . modus-operandi)
+  ;;                          (:sunset  . modus-vivendi-deuteranopia)))
 
-
-(use-package rainbow-delimiters :hook prog-mode)
+  (setq circadian-themes '((:sunrise . doric-marble)
+                           (:sunset  . doric-obsidian))))
 
 
 (provide 'ui-theme)

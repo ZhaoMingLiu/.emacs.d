@@ -18,7 +18,8 @@
   (tab-line-tab-modified ((t :slant unspecified
 			     :weight bold
 			     :underline t
-			     :foreground ,(modus-themes-with-colors red-intense))))
+			     ;; :foreground ,(modus-themes-with-colors red-intense)
+			     )))
   :hook after-init
   :config
   (setq tab-line-new-button-show nil

@@ -1,5 +1,8 @@
 ;;; ui-utils.el --
 
+
+(use-package rainbow-delimiters :hook prog-mode)
+
 (use-package goggles :hook ((prog-mode text-mode) . goggles-mode))
 
 
@@ -40,8 +43,6 @@
    indent-bars-highlight-current-depth '(:color "red" :blend 0.15)))
 
 
-(use-package yascroll :hook (after-init . global-yascroll-bar-mode))
-
 ;; (use-package breadcrumb :hook after-init)
 
 
@@ -51,11 +52,11 @@
 ;; (use-package doom-modeline :hook after-init)
 
 
-(use-package moody
-  :config
-  (moody-replace-mode-line-front-space)
-  (moody-replace-mode-line-buffer-identification)
-  (moody-replace-vc-mode))
+;; (use-package moody
+;;   :config
+;;   (moody-replace-mode-line-front-space)
+;;   (moody-replace-mode-line-buffer-identification)
+;;   (moody-replace-vc-mode))
 
 
 (provide 'ui-utils)

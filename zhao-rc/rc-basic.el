@@ -1,5 +1,4 @@
 ;;; rc-basic.el ---
-
 ;; the good: `https://git.sr.ht/~ashton314/emacs-bedrock'
 
 (setq user-full-name "Zhao Liu"
@@ -8,24 +7,22 @@
 (setq frame-title-format '("GNU Emacs"))
 
 (setq visible-bell t)
-;; (setq ring-bell-function 'ignore)
 
-;; (setq scroll-preserve-screen-position t)
+(setq scroll-preserve-screen-position t)
 
+;;;; Make me feel at home
 (when system-type 'windows-nt
-      (setq w32-recognize-altgr nil)
-
-      (setq woman-path `(,(expand-file-name "~/../Local/man-pages-posix-2017/man*")
-			 ,(expand-file-name "~/../Local/man-pages-6.14/man/man*"))))
-
-(setopt switch-to-buffer-obey-display-actions t)
+      (setq default-directory (concat (getenv "USERPROFILE") "/"))
+      (setq w32-recognize-altgr nil))
 
 
+;;;; Coding type
 (prefer-coding-system 'utf-8)
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
 
 
+;;;; Minihack for such modes
 (defun rc-basic/prog ()
   (setq-local show-trailing-whitespace t
 	      indicate-empty-lines t
@@ -36,28 +33,9 @@
 (add-hook 'prog-mode-hook #'rc-basic/prog)
 
 
-;;;; Info and help-mode hacks
-;; (defun rc-basic/help ()
-;;   (variable-pitch-mode t)
-;;   (switch-to-buffer-other-window "*Help*"))
-
 (add-hook 'help-mode-hook 'variable-pitch-mode)
 
 (add-hook 'Info-mode-hook 'variable-pitch-mode)
-
-
-(use-package visual-fill-column
-  :hook ((Info-mode
-	  help-mode
-	  woman-mode)
-	 . visual-line-fill-column-mode)
-  :custom (visual-fill-column-center-text t))
-
-
-(save-place-mode)
-;; (repeat-mode)
-;; (global-auto-revert-mode)
-;; (global-display-fill-column-indicator-mode)
 
 
 ;;;; Delete selection

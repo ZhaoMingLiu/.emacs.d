@@ -9,8 +9,8 @@
       inhibit-startup-buffer-menu t)
 
 (dolist (var '(default-frame-alist initial-frame-alist))
-  (add-to-list var '(width . (text-pixels . 980)))
-  (add-to-list var '(height . (text-pixels . 800))))
+  (add-to-list var '(width . (text-pixels . 1000)))
+  (add-to-list var '(height . (text-pixels . 820))))
 
 (push '(menu-bar-lines . 0) default-frame-alist)
 (push '(tool-bar-lines . 0) default-frame-alist)
