@@ -14,7 +14,10 @@
 ;; (defvar emacs-english-font "Iosevka NF"
 ;;   "The font name of English.")
 
-(defvar emacs-english-font "RecMonoSmCasual Nerd Font Mono"
+;; (defvar emacs-english-font "RecMonoSmCasual Nerd Font Mono"
+;;   "The font name of English.")
+
+(defvar emacs-english-font "AdwaitaMono Nerd Font Propo"
   "The font name of English.")
 
 (defvar emacs-cjk-font "LXGW Marker Gothic"
@@ -30,8 +33,12 @@
 ;; 		    :family "Iosevka NFP"
 ;; 		    :weight 'Medium)
 
+;; (set-face-attribute 'variable-pitch nil
+;; 		    :family "RecMonoCasual Nerd Font Mono"
+;; 		    :weight 'Medium)
+
 (set-face-attribute 'variable-pitch nil
-		    :family "RecMonoCasual Nerd Font Mono"
+		    :family "Fira Code Retina"
 		    :weight 'Medium)
 
 (set-face-attribute 'fixed-pitch nil

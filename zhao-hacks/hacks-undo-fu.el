@@ -1,17 +1,18 @@
-;;; hacks-undo-fu.el ---
+;;; hacks-undo-fu.el --- Modern Undo System
 
 (use-package undo-fu-session
-  :hook after-init
   :config
-  (setq undo-fu-session-compression 'zst)
-  (undo-fu-session-global-mode))
+  (setq undo-fu-session-compression
+	(when (eq system-type 'windows-nt) 'zst))
+  (undo-fu-session-global-mode t))
 
 (use-package undo-fu
   :bind (("C-z" . nil)
          ("C-z" . undo-fu-only-undo)
          ("C-S-z" . undo-fu-only-redo))
-  :config
-  (setq undo-fu-allow-undo-in-region t))
+  :init
+  (setq undo-fu-allow-undo-in-region t
+	undo-fu-ignore-keyboard-quit t))
 
 
 (provide 'hacks-undo-fu)

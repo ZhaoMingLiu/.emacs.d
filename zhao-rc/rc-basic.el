@@ -8,7 +8,7 @@
 
 (setq visible-bell t)
 
-(setq scroll-preserve-screen-position t)
+;; (setq scroll-preserve-screen-position t)
 
 ;;;; Make me feel at home
 (when system-type 'windows-nt
@@ -42,6 +42,11 @@
 (use-package delsel
   :ensure nil
   :hook (after-init . delete-selection-mode))
+
+
+(global-completion-preview-mode t)
+(which-key-mode t)
+(save-place-mode t)
 
 
 (provide 'rc-basic)

@@ -3,12 +3,12 @@
 (use-package tab-line
   :ensure nil
   :custom-face
-  (tab-line-tab ((t :height 1.2
+  (tab-line-tab ((t :height 1.0
                     :weight medium)))
 
-  (tab-line-tab-current ((t :weight unspecified
-                            :overline nil
-			    :underline nil
+  (tab-line-tab-current ((t :weight bold
+                            :overline unspecified
+			    :underline unspecified
                             :inherit tab-line-tab)))
 
   (tab-line-tab-inactive ((t :inherit tab-line-tab)))
@@ -25,6 +25,9 @@
   (setq tab-line-new-button-show nil
 	tab-line-close-button-show nil)
   (global-tab-line-mode))
+
+
+(use-package tab-line-nerd-icons :after tab-line :config (tab-line-nerd-icons-global-mode))
 
 
 (provide 'ui-tab-line)

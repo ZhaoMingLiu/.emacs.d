@@ -8,6 +8,7 @@
       inhibit-startup-echo-area-message user-login-name
       inhibit-startup-buffer-menu t)
 
+;; fix frame display
 (dolist (var '(default-frame-alist initial-frame-alist))
   (add-to-list var '(width . (text-pixels . 1000)))
   (add-to-list var '(height . (text-pixels . 820))))
@@ -25,10 +26,9 @@
              (minibuffer-window frame) 8 8 5 t)))
 
 
-;; Make native compilation silent and prune its cache.
-(when (native-comp-available-p)
-  (setq native-comp-async-report-warnings-errors 'silent) ; Emacs 28 with native compilation
-  (setq native-compile-prune-cache t)) ; Emacs 29
+;; prevent flash
+(set-face-attribute 'default nil :background "#000000" :foreground "#ffffff")
+(set-face-attribute 'mode-line nil :background "#000000" :foreground "#ffffff" :box 'unspecified)
 
 
 ;;; early-init.el ends here

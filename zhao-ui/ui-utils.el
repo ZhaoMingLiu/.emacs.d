@@ -25,22 +25,17 @@
       argument_list parameters
       list list_comprehension
       dictionary dictionary_comprehension
-      parenthesized_expression subscript)))
+      parenthesized_expression subscript)
+     (toml
+      table array comment)
+     (yaml
+      block_mapping_pair comment)))
   (indent-bars-treesit-ignore-blank-lines-types '("module"))
-  :config
+  :init
   (defun my/treesit-parser-for-lang-mode (lang-mode-symbol)
     (when (and (treesit-available-p)
                (treesit-language-available-p lang-mode-symbol))
-      (treesit-parser-create lang-mode-symbol)))
-
-  (setq					;Zebra
-   indent-bars-color '(highlight :face-bg t :blend 0.25)
-   indent-bars-pattern ". .. .  "
-   indent-bars-zigzag nil
-   indent-bars-width-frac 0.4
-   indent-bars-pad-frac 0.1
-   indent-bars-color-by-depth '(:palette ("black" "white") :blend 0.65)
-   indent-bars-highlight-current-depth '(:color "red" :blend 0.15)))
+      (treesit-parser-create lang-mode-symbol))))
 
 
 ;; (use-package breadcrumb :hook after-init)
@@ -49,7 +44,10 @@
 ;; (use-package minions :hook after-init)
 
 
-;; (use-package doom-modeline :hook after-init)
+(use-package doom-modeline :hook after-init
+  :init
+  (setq doom-modeline-hud t
+	doom-modeline-buffer-modification-icon nil))
 
 
 ;; (use-package moody

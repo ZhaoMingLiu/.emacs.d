@@ -80,7 +80,6 @@
         calendar-longitude 120.67))
 
 (use-package circadian
-  :after solar
   :hook (emacs-startup . circadian-setup)
   :config
   ;; (setq circadian-themes '((:sunrise . modus-operandi)

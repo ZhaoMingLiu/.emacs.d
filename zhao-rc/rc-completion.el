@@ -1,22 +1,20 @@
 ;;; rc-completion.el ---
 
-(use-package savehist :hook after-init)
-
-(use-package orderless
+(use-package prescient
   :custom
-  (completion-styles '(orderless basic))
+  (completion-style '(prescient))	;apply to emacs
+  :config
+  (setq completion-preview-sort-function #'prescient-completion-sort) ;intergrate with this
+  (prescient-persist-mode)		;persist minibuffer history
 
-  (completion-category-defaults nil)
-  (completion-category-overrides '((file (styles
-					  basic
-					  partial-completion)))))
+  (use-package vertico-prescient
+    :config
+    (vertico-prescient-mode)))		;apply to vertico
 
 
 (use-package vertico
   :pin gnu
   :hook after-init
-  ;; :custom-face
-  ;; (marginalia-file-priv-dir ((t :weight bold)))
   :config
   ;; (setq vertico-resize t)
 
@@ -24,9 +22,7 @@
         '((consult-line buffer)
           (consult-ripgrep buffer)
           (consult-imenu buffer reverse)
-
-          (execute-extended-command
-           (+vertico-transform-functions . +vertico-highlight-enabled-mode))))
+	  (consult-outline buffer reverse)))
 
   (setq vertico-multiform-categories
         '((file
@@ -80,18 +76,6 @@
         (propertize file 'face 'marginalia-file-priv-dir) ; or face 'dired-directory
       file))
 
-  ;; function to highlight enabled modes similar to counsel-M-x
-  (defun +vertico-highlight-enabled-mode (cmd)
-    "If MODE is enabled, highlight it as font-lock-constant-face."
-    (let ((sym (intern cmd)))
-      (if (or (eq sym major-mode)
-              (and
-               (memq sym minor-mode-list)
-               (boundp sym)))
-          (propertize cmd 'face 'font-lock-constant-face)
-        cmd)))
-
-
   (defun my/vertico-truncate-candidates (args)
     (if-let ((arg (car args))
              (type (get-text-property 0 'multi-category arg))
@@ -123,10 +107,11 @@
 
 
 (use-package recentf
+  :ensure nil
   :hook ((after-init . recentf-mode)
          (buffer-list-update . recentf-track-opened-file))
-  :bind (
-         ("C-x C-r" . recentf-open)
+
+  :bind (("C-x C-r" . recentf-open)
          ("C-S-t"   . recentf-open-most-recent-file))) ;like in browser
 
 
