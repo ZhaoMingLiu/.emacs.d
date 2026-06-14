@@ -16,7 +16,7 @@
 (require 'ui-theme)			; Load theme
 ;; (require 'ui-greeting)			; Let Emacs smile
 (require 'ui-utils)
-(require 'ui-tab-line)			; Customized tab bar/line
+;; (require 'ui-tab-line)			; Customized tab bar/line
 
 ;;; Hacks
 (add-to-list 'load-path (locate-user-emacs-file "zhao-hacks"))
@@ -38,28 +38,3 @@
 (use-package magit
   :bind
   ("C-x g" . magit-status))
-
-
-(use-package scroll-on-jump
-  :config
-  (setq scroll-on-jump-smooth nil)
-  (setq scroll-on-jump-curve 'smooth-out)
-
-  (scroll-on-jump-advice-add forward-paragraph)
-  (scroll-on-jump-advice-add backward-paragraph)
-  (scroll-on-jump-advice-add undo)
-  (scroll-on-jump-advice-add redo)
-  (scroll-on-jump-advice-add jump-item)
-  (scroll-on-jump-advice-add jump-forward)
-  (scroll-on-jump-advice-add jump-backward)
-  (scroll-on-jump-advice-add forward-paragraph)
-  (scroll-on-jump-advice-add backward-paragraph)
-  (scroll-on-jump-advice-add goto-mark)
-
-  ;; Actions that themselves scroll.
-  (scroll-on-jump-with-scroll-advice-add consult-goto-line)
-  (scroll-on-jump-with-scroll-advice-add isearch-repeat-forward)
-  (scroll-on-jump-with-scroll-advice-add isearch-repeat-backward)
-  (scroll-on-jump-with-scroll-advice-add scroll-down)
-  (scroll-on-jump-with-scroll-advice-add scroll-up)
-  (scroll-on-jump-with-scroll-advice-add recenter-top-bottom))

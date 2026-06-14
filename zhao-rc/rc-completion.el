@@ -15,21 +15,25 @@
 (use-package vertico
   :pin gnu
   :hook after-init
+  ;; :bind
+  ;; ("M-q" . #'vertico-quick-insert)
+  ;; ("C-q" . #'vertico-quick-exit)
   :config
   ;; (setq vertico-resize t)
 
   (setq vertico-multiform-commands
         '((consult-line buffer)
           (consult-ripgrep buffer)
-          (consult-imenu buffer reverse)
-	  (consult-outline buffer reverse)))
+          (consult-imenu buffer indexed)
+	  (consult-outline buffer)
+	  (execute-extended-command indexed grid reverse)))
 
   (setq vertico-multiform-categories
         '((file
            buffer
-           reverse
            (+vertico-transform-functions . +vertico-highlight-directory)
-           (vertico-sort-function . sort-directories-first))))
+           (vertico-sort-function . sort-directories-first)
+	   (vertico-buffer-display-action . (display-buffer-same-window)))))
 
   (vertico-multiform-mode)
 

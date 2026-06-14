@@ -27,5 +27,8 @@
   ("M-`" . eshell-toggle))
 
 
+(use-package eshell-fixed-prompt :hook eshell-mode)
+
+
 (provide 'hacks-eshell)
 ;;; hacks-eshell.el ends here

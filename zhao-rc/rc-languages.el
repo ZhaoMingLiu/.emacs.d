@@ -34,6 +34,22 @@
               :around #'lua-at-most-one-indent))
 
 
+;; (use-package lsp-bridge
+;;   :load-path (lambda () (concat (getenv "HOME") "/Documents/Pub/lsp-bridge/"))
+;;   :init
+;;   (use-package yasnippet :init (yas-global-mode 1))
+;;   (use-package markdown-mode
+;;     :mode ("README\\.md\\'" . gfm-mode)
+;;     :init (setq markdown-command "multimarkdown")
+;;     :bind (:map markdown-mode-map
+;; 		("C-c C-e" . markdown-do)))
+
+;;   (require 'lsp-bridge)
+;;   (global-lsp-bridge-mode))
+
+;; (add-to-list 'load-path "~/Documents/Pub/lsp-bridge")
+
+
 (add-hook 'python-ts-mode-hook #'display-fill-column-indicator-mode)
 
 

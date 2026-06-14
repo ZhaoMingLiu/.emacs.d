@@ -5,6 +5,10 @@
 
 (use-package goggles :hook ((prog-mode text-mode) . goggles-mode))
 
+;; (use-package crystal-point :hook (after-init . crystal-point-enable))
+
+(use-package vim-tab-bar :hook after-init)
+
 
 (use-package indent-bars
   :hook ((prog-mode . indent-bars-mode)
@@ -38,23 +42,24 @@
       (treesit-parser-create lang-mode-symbol))))
 
 
-;; (use-package breadcrumb :hook after-init)
+(use-package breadcrumb :hook after-init)
 
 
-;; (use-package minions :hook after-init)
+(use-package minions :hook after-init)
 
 
-(use-package doom-modeline :hook after-init
-  :init
-  (setq doom-modeline-hud t
-	doom-modeline-buffer-modification-icon nil))
+;; (use-package doom-modeline :hook after-init
+;;   :init
+;;   (setq doom-modeline-hud t
+;; 	doom-modeline-buffer-modification-icon nil))
 
 
-;; (use-package moody
-;;   :config
-;;   (moody-replace-mode-line-front-space)
-;;   (moody-replace-mode-line-buffer-identification)
-;;   (moody-replace-vc-mode))
+(use-package moody
+  :config
+  (moody-replace-mode-line-front-space)
+  (moody-replace-mode-line-buffer-identification)
+  ;; (moody-replace-vc-mode)
+  )
 
 
 (provide 'ui-utils)

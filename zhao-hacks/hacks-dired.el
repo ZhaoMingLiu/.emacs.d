@@ -9,7 +9,9 @@
    (ls-lisp-use-insert-directory-program
     (when (eq system-type 'windows-nt) t))
 
-   (dired-listing-switches "-AlhGgL --group-directories-first")))
+   (dired-listing-switches "-AlhGgL --group-directories-first"))
+  :bind (:map dired-mode-map
+	      ("K" . dired-kill-subdir)))
 
 (use-package dired-collapse :hook dired-mode)
 

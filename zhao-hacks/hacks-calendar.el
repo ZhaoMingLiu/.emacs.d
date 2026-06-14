@@ -11,7 +11,7 @@
 
       (dolist (my/holidays
                '((holiday-fixed 1 30  "老弟生日")
-		 (holiday-fixed 3 1   "雅筑生日")
+		 ;; (holiday-fixed 3 1   "雅筑生日")
 		 (holiday-fixed 4 1   "父親紀念日")
 		 (holiday-fixed 6 15  "老妹生日")
 		 (holiday-fixed 12 12 "老媽生日")))
